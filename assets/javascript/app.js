@@ -1,4 +1,5 @@
-
+    var topics = ["cat", "dog", "bird", "elephant", "lion", "tiger", "bear"]
+    var animalButton = ""
     // Adding click event listen listener to all buttons
     $("button").on("click", function() {
       // Grabbing and storing the data-animal property value from the button
