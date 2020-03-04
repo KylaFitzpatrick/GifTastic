@@ -10,14 +10,27 @@
   <title>Animal Buttons</title>
 </head>
 <body>
-    <button data-animal="cat">Cat</button>
+    <!-- Animal Select Box -->
+  <form id="animal-form">
+
+    <!-- Label for Text Box -->
+    <label for="animal-input">Choose Your Animal</label>
+
+    <!-- Text Input Box -->
+    <input type="text" id="animal-input"><br>
+
+    <!-- Submit Button -->
+    <input id="select-animal" type="submit" value="Submit!">
+  </form>
+    <div id="animalButtons"></div>
+    <!-- <button data-animal="cat">Cat</button>
     <button data-animal="dog">Dog</button>
     <button data-animal="bird">Bird</button>
     <button data-animal="elephant">Elephant</button>
     <button data-animal="tiger">Tiger</button>
     <button data-animal="bear">Bear</button>
     <button data-animal="dolphin">Dolphin</button>
-    <button data-animal="lion">Lion</button>
+    <button data-animal="lion">Lion</button> -->
     <div id="gifs-appear-here">
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,5 +1,15 @@
     var topics = ["cat", "dog", "bird", "elephant", "lion", "tiger", "bear"]
-    var animalButton = ""
+    // var animalButton = ""
+
+    // function animalButtons(){
+        for(var i = 0; i < topics.length; i++){
+            console.log(topics[i])
+            var button = $("<button>")
+            var animal = topics[i];
+            button.text(animal)
+            $("#animalButtons").append(button.text(animal));
+        }
+    // }
     // Adding click event listen listener to all buttons
     $("button").on("click", function() {
       // Grabbing and storing the data-animal property value from the button
@@ -25,6 +35,9 @@
           // Looping through each result item
           for (var i = 0; i < results.length; i++) {
 
+            // Only taking action if the photo has an appropriate rating
+            if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+
             // Creating and storing a div tag
             var animalDiv = $("<div>");
 
@@ -42,6 +55,7 @@
 
             // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
             $("#gifs-appear-here").prepend(animalDiv);
+            }
           }
         });
     });
