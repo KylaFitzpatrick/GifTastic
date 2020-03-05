@@ -47,7 +47,7 @@
           }
         });
     }
-    $("#buttons-view").on("click", function(event) {
+    $("#buttons-view").on("click", function() {
     displayAnimalInfo();
     });
     // Function for displaying movie data
