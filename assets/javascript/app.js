@@ -1,12 +1,15 @@
-    var topics = ["cat", "dog", "bird", "elephant", "lion", "tiger", "bear"]
-
+    var topics = ["wolf", "cat", "pig", "elephant", "lion", "tiger", "bear"]
+    $("#buttons-view").on("click", function(event) {
+        event.preventDefault();
+    displayAnimalInfo();
+    });
     //display buttons
     function displayAnimalInfo() {
 
-        var animal = $(this).attr("data-name");
+        var topic = $(this).attr("data-name");
 
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        animal + "&api_key=owvPyojasfdFQubniXVym1zsfVZzy9IB&limit=10";
+        topic + "&api_key=z7ZwGCoe8mJjUtLipIsTdyr00UdlZVgk&limit=10";
 
          // Performing an AJAX request with the queryURL
       $.ajax({
@@ -36,7 +39,12 @@
             var animalImage = $("<img>");
             // Setting the src attribute of the image to a property pulled off the result item
             animalImage.attr("src", results[i].images.fixed_height.url);
-
+            // animalImage.attr("src", animalImage.attr("data-still"));
+            animalImage.attr("data-state", "still")
+            animalImage.attr("data-still", results[i].images.fixed_height.url);
+            animalImage.attr("data-animate", results[i].images.fixed_height.url);
+            animalImage.addClass("gif")
+            
             // Appending the paragraph and image tag to the animalDiv
             animalDiv.append(p);
             animalDiv.append(animalImage);
@@ -47,9 +55,26 @@
           }
         });
     }
-    $("#buttons-view").on("click", function() {
-    displayAnimalInfo();
-    });
+
+        $(".gif").on("click", function() {
+            alert("clicked")
+            // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+            var state = $(this).attr("data-state");
+            // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+            // Then, set the image's data-state to animate
+            // Else set src to the data-still value
+            if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+            } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+            }
+        });
+    // $("#buttons-view").on("click", function(event) {
+    //     event.preventDefault();
+    // displayAnimalInfo();
+    // });
     // Function for displaying movie data
     function renderButtons() {
 
@@ -78,13 +103,25 @@
         event.preventDefault();
         // This line grabs the input from the textbox
         var animal = $("#animal-input").val().trim();
-
+        
         // Adding animal from the textbox to our array
         topics.push(animal);
-
+        
         // Calling renderButtons which handles the processing of our animal array
         renderButtons();
+        
       });
+
+    //   $('#animal-input').keyup(function(event) {
+    //     var input=$(this);
+    //     var animalText=$(this).val();
+    //     console.log(animalText);
+    //     if(animalText){
+    //         input.removeClass("invalid").addClass("valid");
+    //     }else{
+    //         input.removeClass("valid").addClass("invalid");
+    //     }	
+    // });
 
       // Adding a click event listener to all elements with a class of "animal"
       $(document).on("click", ".animal", displayAnimalInfo);
