@@ -6,7 +6,27 @@ button{
     font-family: 'Chicle', cursive;
     font-size: 50px;
     color: purple;
+    margin: 10px;
 }
 #add-animal{
     font-size: 50px;
+}
+h1{
+    font-family: 'Monoton', cursive;
+    font-size: 100px;
+    background: -webkit-linear-gradient(purple,blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#animal-form{
+    font-size: 50px;
+}
+#animal-input{
+    font-size: 50px;
+}
+#add-animal{
+    font-size: 50px;
+}
+input[type="text"]{
+    font-family: 'Chicle', cursive;
 }
