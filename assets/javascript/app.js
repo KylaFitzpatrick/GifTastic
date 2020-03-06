@@ -32,7 +32,7 @@
             if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
 
             // storing a div tag
-            var animalDiv = $("<div id='animalDiv'>");
+            var animalDiv = $("<div id='gifs-appear-here'>");
 
             // result item's rating in p tag
             var p = $("<p>").text("Rating: " + results[i].rating);
@@ -45,7 +45,7 @@
             animalImage.attr("data-state", "still")
             animalImage.attr("data-still", results[i].images.original_still.url);
             animalImage.attr("data-animate", results[i].images.fixed_height.url);
-            animalImage.addClass("gif")
+            // animalImage.addClass("gif")
             
             // appending p and img tag to the animalDiv
             animalDiv.append(p);
@@ -59,16 +59,16 @@
     }
 
 
-        $("div").on("click", "img", "#animal", function() {
-            alert("clicked")
+        $("#animal").on("click", function() {
+            // alert("clicked")
             // attr jQuery method allows us to get or set the value of any attribute on our HTML element
-            var state = $(this).attr("data-state");
+            var state = $("#animal").attr("data-state");
             // clicked image's state is still, update its src attribute data-animate value
             // set the image's data-state to animate
             // else set src to the data-still value
             if (state === "still") {
-            $(this).attr("src", $(this).attr("data-animate"));
-            $(this).attr("data-state", "animate");
+            $("#animal").attr("src", $("#animal").attr("data-animate"));
+            $("#animal").attr("data-state", "animate");
             } else {
             $(this).attr("src", $(this).attr("data-still"));
             $(this).attr("data-state", "still");
