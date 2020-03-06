@@ -45,6 +45,7 @@ input[type="text"]{
     color: blue;
     border-color: purple;
     border-width: 3px;
+    -webkit-text-fill-color:blue;
 }
 #gifs-appear-here p{
     font-weight: 20px;
