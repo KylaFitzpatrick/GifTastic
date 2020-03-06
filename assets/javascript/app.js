@@ -32,18 +32,18 @@
             if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
 
             // storing a div tag
-            var animalDiv = $("<div id='animal'>");
+            var animalDiv = $("<div id='animalDiv'>");
 
             // result item's rating in p tag
             var p = $("<p>").text("Rating: " + results[i].rating);
 
             // storing an image tag
-            var animalImage = $("<img>");
+            var animalImage = $("<img id='animal'>");
             // src attribute of the image to a property pulled off the result item
-            animalImage.attr("src", results[i].images.fixed_height.url);
+            animalImage.attr("src", results[i].images.original_still.url);
             // animalImage.attr("src", animalImage.attr("data-still"));
             animalImage.attr("data-state", "still")
-            animalImage.attr("data-still", results[i].images.fixed_height.url);
+            animalImage.attr("data-still", results[i].images.original_still.url);
             animalImage.attr("data-animate", results[i].images.fixed_height.url);
             animalImage.addClass("gif")
             
@@ -59,7 +59,7 @@
     }
 
 
-        $(".gif").on("click", function() {
+        $("div").on("click", "img", "#animal", function() {
             alert("clicked")
             // attr jQuery method allows us to get or set the value of any attribute on our HTML element
             var state = $(this).attr("data-state");
