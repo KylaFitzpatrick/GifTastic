@@ -39,13 +39,11 @@
 
             // storing an image tag
             var animalImage = $("<img id='animal'>");
-            // src attribute of the image to a property pulled off the result item
+            // src attribute of the image from result item
             animalImage.attr("src", results[i].images.fixed_height_still.url);
-            // animalImage.attr("src", animalImage.attr("data-still"));
-            animalImage.attr("data-state", "still")
             animalImage.attr("data-still", results[i].images.fixed_height_still.url);
             animalImage.attr("data-animate", results[i].images.fixed_height.url);
-            // animalImage.addClass("gif")
+            animalImage.attr("data-state", "still");
             
             // appending p and img tag to the animalDiv
             animalDiv.append(p);
@@ -60,12 +58,14 @@
 
 
         $("div").on("click", "#animal", function() {
+            // event.preventDefault();
             alert("clicked")
             // attr jQuery method allows us to get or set the value of any attribute on our HTML element
             var state = $("#animal").attr("data-state");
             // clicked image's state is still, update its src attribute data-animate value
             // set the image's data-state to animate
             // else set src to the data-still value
+            // set the image's data-state to still
             if (state === "still") {
             $("#animal").attr("src", $("#animal").attr("data-animate"));
             $("#animal").attr("data-state", "animate");
