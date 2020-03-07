@@ -32,7 +32,7 @@
             if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
 
             // storing a div tag
-            var animalDiv = $("<div id='gifs-appear-here'>");
+            var animalDiv = $("<div id='animalGifs'>");
 
             // result item's rating in p tag
             var p = $("<p>").text("Rating: " + results[i].rating);
@@ -40,10 +40,10 @@
             // storing an image tag
             var animalImage = $("<img id='animal'>");
             // src attribute of the image to a property pulled off the result item
-            animalImage.attr("src", results[i].images.original_still.url);
+            animalImage.attr("src", results[i].images.fixed_height_still.url);
             // animalImage.attr("src", animalImage.attr("data-still"));
             animalImage.attr("data-state", "still")
-            animalImage.attr("data-still", results[i].images.original_still.url);
+            animalImage.attr("data-still", results[i].images.fixed_height_still.url);
             animalImage.attr("data-animate", results[i].images.fixed_height.url);
             // animalImage.addClass("gif")
             
@@ -59,8 +59,8 @@
     }
 
 
-        $("#animal").on("click", function() {
-            // alert("clicked")
+        $("div").on("click", "#animal", function() {
+            alert("clicked")
             // attr jQuery method allows us to get or set the value of any attribute on our HTML element
             var state = $("#animal").attr("data-state");
             // clicked image's state is still, update its src attribute data-animate value
@@ -70,8 +70,8 @@
             $("#animal").attr("src", $("#animal").attr("data-animate"));
             $("#animal").attr("data-state", "animate");
             } else {
-            $(this).attr("src", $(this).attr("data-still"));
-            $(this).attr("data-state", "still");
+            $("#animal").attr("src", $("#animal").attr("data-still"));
+            $("#animal").attr("data-state", "still");
             }
         });
    
