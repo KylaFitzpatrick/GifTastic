@@ -47,8 +47,9 @@ function displayAnimalInfo(topic) {
                 animalImage.attr("class", "gif");
 
                 // appending p and img tag to the animalDiv
-                animalDiv.append(p);
                 animalDiv.append(animalImage);
+                animalDiv.append(p);
+                
 
                 // prepend the animalDiv to the HTML page in the "#gifs-appear-here" div
                 $("#gifs-appear-here").prepend(animalDiv);
@@ -60,7 +61,6 @@ function displayAnimalInfo(topic) {
 
 $("#gifs-appear-here").on("click", ".gif", function () {
     // event.preventDefault();
-    alert("clicked")
     // attr jQuery method allows us to get or set the value of any attribute on our HTML element
     var state = $(this).attr("data-state");
     // clicked image's state is still, update its src attribute data-animate value
