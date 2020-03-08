@@ -71,7 +71,7 @@ $("#gifs-appear-here").on("click", ".gif", function () {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
     } else {
-        $(this).attr("src", $("#animal").attr("data-still"));
+        $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
     }
 });
