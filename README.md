@@ -1,5 +1,14 @@
 # GifTastic
 
+### The problem:
+Creating a giphy search using giphy API, javascript, html and css.
+
+### How you solved it:
+Researching stackoverflow, youtube and google of how to create a giphy search. Also, research past class activities to gain a better understanding of the userflow with giphy API.
+
+### Technical approach:
+ I first need to figure out how to use the giphy API and how to call specific properties from the API. 
+
 ### What the project does: 
 This is a giphy project which gets giphy images from the giphy api and displays them. The theme of this is animal. You may add animal button images to the list of buttons. If you click on an animal button 10 static giphys for that animal should display. If you click on the gihpy the giphy will animate. If you click a second time the giphy animation will stop.
 
