@@ -24,4 +24,5 @@ Users can get help with this project by using stack overflow for any questions t
 ### Who maintains and contributes to the project: 
 Kyla Fitzpatrick maintains and contributes to this project.
 
-
+### Deployed link: 
+https://kylafitzpatrick.github.io/GifTastic/
